@@ -1,14 +1,13 @@
 import React from "react";
-import Dashboard from "./components/Main";
+import Main from "./components/Dashboard/Main";
 
 import { ContextState } from "./ContextConfig";
-
-function App() {
+const App = () => {
   return (
     <ContextState>
-      <Dashboard />
+      <Main />
     </ContextState>
   );
-}
+};
 
 export default App;

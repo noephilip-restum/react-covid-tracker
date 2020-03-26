@@ -1,7 +1,11 @@
-import { get } from "../utils/api";
+import { get, getData } from "../utils/api";
 
 export const fetchData = () => {
-  get("api")
-    .then(response => console.log(response))
+  return get("api")
+    .then(response => response.data)
     .catch();
 };
+
+export function fetchCountryData() {
+  return getData("api/countries").then(response => response);
+}

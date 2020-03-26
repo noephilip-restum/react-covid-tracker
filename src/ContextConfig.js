@@ -13,7 +13,19 @@ function ContextState({ children }) {
   const [data, dispatchData] = useReducer(Data.reducer, Data.initialState);
 
   useEffect(() => {
-    dataFunctions.fetchData();
+    dataFunctions
+      .fetchData()
+      .then(response => dispatchData({ type: "COUNT", data: response }))
+      .catch();
+    dataFunctions
+      .fetchCountryData()
+      .then(details =>
+        dispatchData({
+          type: "COUNTRIES",
+          data: details
+        })
+      )
+      .catch();
   }, []);
 
   return (

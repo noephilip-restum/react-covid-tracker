@@ -1,26 +1,24 @@
 export const initialState = {
   confirmed: 0,
   deaths: 0,
-  recovered: 0
+  recovered: 0,
+  lastUpdate: "N/A",
+  countries: []
 };
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "FIELD": {
+    case "COUNT": {
       return {
         ...state,
-        formState: { ...state.formState, [action.fieldName]: action.payload }
+        confirmed: action.data.confirmed.value,
+        deaths: action.data.deaths.value,
+        recovered: action.data.recovered.value,
+        lastUpdate: action.data.lastUpdate
       };
     }
-    case "VALIDATE": {
-      return {
-        ...state,
-        errors: action.payload.errors,
-        isLoading: action.payload.isLoading
-      };
-    }
-    case "RESET": {
-      return action.payload;
+    case "COUNTRIES": {
+      return { ...state, countries: action.data };
     }
 
     default:
