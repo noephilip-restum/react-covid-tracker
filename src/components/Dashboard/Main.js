@@ -3,6 +3,7 @@ import { Context } from "../../ContextConfig";
 
 //MATERIAL UI CORE
 import * as MU from "@material-ui/core";
+import * as Icons from "@material-ui/icons";
 
 //COMPONENTS
 import GlobalDetails from "./GlobalDetails";
@@ -28,7 +29,7 @@ const Main = () => {
           </MU.Grid>
         </MU.Grid>
         <MU.Grid item xs={3}>
-          <Countries MU={MU} classes={classes} data={data} />
+          <Countries MU={MU} classes={classes} data={data} Icons={Icons} />
         </MU.Grid>
       </MU.Grid>
     </div>
